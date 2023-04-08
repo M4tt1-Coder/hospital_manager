@@ -9,6 +9,10 @@ import (
 )
 
 func main() {
+	// envErr := godotenv.Load(".env")
+	// if envErr != nil {
+	// 	fmt.Printf("could not load environment")
+	// }
 	r := mux.NewRouter()
 	routes.AllRoutes(r)
 	http.Handle("/", r)

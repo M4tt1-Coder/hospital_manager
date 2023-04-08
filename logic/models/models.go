@@ -17,19 +17,20 @@ type Illness struct {
 
 type Patient struct {
 	gorm.Model
-	Name       string  `gorm:"Name" json:"name"`
-	Age        int64   `gorm:"Age" json:"age"`
-	Roomnumber int64   `gorm:"Roomnumber" json:"roomnumber"`
-	Illness    Illness `gorm:"Illness" json:"illness"`
+	Name       string `gorm:"Name" json:"name"`
+	Age        int64  `gorm:"Age" json:"age"`
+	Roomnumber int64  `gorm:"Roomnumber" json:"roomnumber"`
+	Illness    string `gorm:"Illness" json:"illness"`
 }
 
 func init() {
 	dbHandler.Connect()
 	db = dbHandler.GetDB()
 	db.AutoMigrate(&Patient{})
+	db.AutoMigrate(&Illness{})
 }
 
-func UpdatePatientByName(name string, age int64, rm_num int64, ill Illness) *Patient {
+func UpdatePatientByName(name string, age int64, rm_num int64, ill string) *Patient {
 	p, _ := GetPatientByName(name)
 	if age != 0 {
 		p.Age = age
@@ -37,7 +38,7 @@ func UpdatePatientByName(name string, age int64, rm_num int64, ill Illness) *Pat
 	if rm_num != 0 {
 		p.Roomnumber = rm_num
 	}
-	if ill.Name != "" {
+	if ill != "" {
 		p.Illness = ill
 	}
 	db.Save(&p)

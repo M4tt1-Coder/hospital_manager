@@ -53,8 +53,7 @@ func UpdatePatientByName(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err2.Error(), http.StatusBadRequest)
 	}
 	//get the illness by name but better convert illness passed by the user
-	illness := vars["illness"]
-	ill, _ := models.GetIllnessByName(illness)
+	ill := vars["illness"]
 	i := models.UpdatePatientByName(name, age, rm_num, ill)
 	res, _ := json.Marshal(i)
 	w.Header().Set("Content-Type", "application/json")

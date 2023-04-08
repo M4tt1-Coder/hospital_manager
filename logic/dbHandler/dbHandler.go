@@ -1,21 +1,21 @@
 package dbHandler
 
 import (
-	"gorm.io/driver/sqlite"
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
 var (
 	db               *gorm.DB
-	connectionstring = "hospital.db"
+	connectionstring = "root:MySqLt3sT25#@tcp(127.0.0.1:3306)/hospital?charset=utf8&parseTime=true&loc=Local"
 )
 
 func Connect() {
-	d, err := gorm.Open(sqlite.Open(connectionstring), &gorm.Config{})
+
+	d, err := gorm.Open(mysql.Open(connectionstring), &gorm.Config{})
 	if err != nil {
 		panic("Could not connect to database")
 	}
-	d.AutoMigrate(models)
 	db = d
 }
 
