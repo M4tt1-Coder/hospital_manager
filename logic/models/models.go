@@ -2,7 +2,8 @@ package models
 
 import (
 	"github.com/M4TT1-Coder/Hospital_manager/logic/dbHandler"
-	"gorm.io/gorm"
+	//"gorm.io/gorm"
+	"github.com/jinzhu/gorm"
 )
 
 // Add a global database connection
@@ -46,11 +47,13 @@ func UpdatePatientByName(name string, age int64, rm_num int64, ill string) *Pati
 }
 
 func (p *Patient) CreatePatient() *Patient {
+	db.NewRecord(p)
 	db.Create(&p)
 	return p
 }
 
 func (i *Illness) CreateIllness() *Illness {
+	db.NewRecord(i)
 	db.Create(&i)
 	return i
 }

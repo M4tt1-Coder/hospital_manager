@@ -1,8 +1,10 @@
 package dbHandler
 
 import (
-	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
+	//"gorm.io/driver/mysql"
+	//"gorm.io/gorm"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
 var (
@@ -12,7 +14,8 @@ var (
 
 func Connect() {
 
-	d, err := gorm.Open(mysql.Open(connectionstring), &gorm.Config{})
+	//d, err := gorm.Open(mysql.Open(connectionstring), &gorm.Config{})
+	d, err := gorm.Open("mysql", connectionstring)
 	if err != nil {
 		panic("Could not connect to database")
 	}

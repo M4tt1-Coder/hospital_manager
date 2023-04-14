@@ -16,6 +16,6 @@ func main() {
 	r := mux.NewRouter()
 	routes.AllRoutes(r)
 	http.Handle("/", r)
-	log.Fatal(http.ListenAndServe(":8080", r))
 	println("Server is running on port 8080")
+	log.Fatal(http.ListenAndServe(":8080", r))
 }

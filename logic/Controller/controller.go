@@ -63,7 +63,7 @@ func UpdatePatientByName(w http.ResponseWriter, r *http.Request) {
 
 // functions for illness model
 func CreateIllness(w http.ResponseWriter, r *http.Request) {
-	illness := models.Illness{}
+	illness := &models.Illness{}
 	json_parser.ParseBody(r, illness)
 	i := illness.CreateIllness()
 	res, _ := json.Marshal(i)
