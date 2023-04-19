@@ -13,7 +13,7 @@
         <!--The create patient part-->
         <div class="CreatePatient">
             <form action="http://localhost:8080/" target="_blank">
-                <button type="submit" name="CreatePatButton">Create Patient</button>
+                <button type="submit" name="CreatePatButton" id="CreatePatButton">Create Patient</button>
             </form>
         </div>
 
@@ -28,29 +28,43 @@
         
         <!--infos of a specific patient-->
         <div class="infos">
-            <div class="name">
-                <p>Name:</p>
-                <input type="text"></input>
-            </div>
-            <div class="age">
+            <form action="http://localhost:8080/patient/update/{name}">
+                <div class="name">
+                    <label for="namefield">Name: </label>
+                    <input type="text" name="namefield" id="namefield"></input>
+                </div>
+                <div class="age">
+                    <label for="agefield">Age: </label>
+                    <input type="text" name="agefield" id="agefield"></label>
+                </div>
+                <div class="roomnumber">
+                    <label for="rm_num_field">Roomnumber: </label>
+                    <input type="text" name="rm_num_field" id="rm_num_field"></input>
+                </div>
+                <div class="illness">
+                    <label for="ill_field">Illness: </label>
+                    <input type="text" id="ill_field" name="ill_field"></input>
+                </div>
                 
-            </div>
-            <div class="roomnumber">
-
-            </div>
-            <div class="illness">
-
-            </div>
+                <!--update patient section-->
+                <button type="submit" id="update_patient_button" name="update_patient_button" value="Update"></button>
+            </form>
         </div>
 
         <!--delete patient-->
 
-        <div class="deletepatient">
-
+        <!--look how to delete the selected item from the unordered list above-->
+        <div class="deletepatient">     
+            <form action="http://localhost:8080/patient/delete">
+                <button type="submit" name="delete_patient" value="Delete" id="delete_patient"></button>
+            </form>            
         </div>
 
-        <!--update patient section-->
-
         <!--go to illness page-->
+        <div class="GoToIllnessPage">
+            <form action="http://localhost:8080/illness/">
+                <button type="submit" id="goto_illness" name="goto_illness">Go to Illnesspage</button>
+            </form>
+        </div>
     </body>
 </html>

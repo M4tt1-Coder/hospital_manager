@@ -107,6 +107,10 @@ func UpdateIllnessByName(w http.ResponseWriter, r *http.Request) {
 	w.Write(res)
 }
 
+func OpenPatientPage(w http.ResponseWriter, r *http.Request) {
+
+}
+
 //helper functions
 
 // func SetNewPatientInfo(props map[string]string, p models.Patient) models.Patient {

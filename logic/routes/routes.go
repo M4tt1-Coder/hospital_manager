@@ -15,4 +15,6 @@ var AllRoutes = func(router *mux.Router) {
 	router.HandleFunc("/illness/get/{name}", Controller.GetIllnessByName).Methods("GET")
 	router.HandleFunc("/illness/delete/{name}", Controller.DeleteIllnessByName).Methods("DELETE")
 	router.HandleFunc("/illness/update/{name}", Controller.UpdateIllnessByName).Methods("UPDATE")
+	//add some routes for all html pages
+
 }
