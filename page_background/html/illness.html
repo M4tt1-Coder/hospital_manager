@@ -9,7 +9,37 @@
         <title>Illnesses</title>
     </head>
 
+    <body>
+        <!--create illness-->
+        <div class="CreateIllness" id="CreateIllness">
+            <!--Check logic for open a simple htmlpage: open the link -->
+            <form action="http://localhost:8080/" target="_blank">
+                <button type="submit" name="CreateIllness" id="CreateIllnessButton">Create Illness</button>
+            </form>
+        </div>
 
+        <!--list of all illnesses-->
+
+        <div class="list" id="illnesslist"> 
+            <ul id="list">
+                <!--interact with typescript code to fill the unordered list-->
+            </ul>
+        </div>
+
+        <div class="infos" id="illnessinfos">
+            <!--name, kind, can_be_healed-->
+            <form action="http://localhost:8080/illness/udpate/{name}">
+                <div class="name" id="namefieldarea">
+                    <label for="namefield">Name: </label>
+                    <input type="text" id="namefield" name="namefield"></input>
+                </div>
+                <div class="kind" id="kindfieldarea">
+                    
+                </div>
+            </form>
+        </div>
+
+    </body>
 
 
 </html>

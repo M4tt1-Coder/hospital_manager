@@ -19,7 +19,7 @@
 
         <!--list of all patients -->
 
-        <div class="list">
+        <div class="list" id="patientlist">
             <ul>
                 <li>Example content</li><!--use typescript for communicating with golang server-->
             </ul>
@@ -27,21 +27,21 @@
         
         
         <!--infos of a specific patient-->
-        <div class="infos">
+        <div class="infos" id="patientinfos">
             <form action="http://localhost:8080/patient/update/{name}">
-                <div class="name">
+                <div class="name" id="namefield_area">
                     <label for="namefield">Name: </label>
                     <input type="text" name="namefield" id="namefield"></input>
                 </div>
-                <div class="age">
+                <div class="age" id="agefield_area">
                     <label for="agefield">Age: </label>
                     <input type="text" name="agefield" id="agefield"></label>
                 </div>
-                <div class="roomnumber">
+                <div class="roomnumber" id="rm_num_fieldarea">
                     <label for="rm_num_field">Roomnumber: </label>
                     <input type="text" name="rm_num_field" id="rm_num_field"></input>
                 </div>
-                <div class="illness">
+                <div class="illness" id="ill_fieldarea">
                     <label for="ill_field">Illness: </label>
                     <input type="text" id="ill_field" name="ill_field"></input>
                 </div>

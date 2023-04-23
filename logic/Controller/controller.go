@@ -2,12 +2,14 @@ package Controller
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"strconv"
 
 	"github.com/M4TT1-Coder/Hospital_manager/logic/json_parser"
 	"github.com/M4TT1-Coder/Hospital_manager/logic/models"
 	"github.com/gorilla/mux"
+	"github.com/gorilla/schema"
 )
 
 // functions for patient model
@@ -109,6 +111,23 @@ func UpdateIllnessByName(w http.ResponseWriter, r *http.Request) {
 
 func OpenPatientPage(w http.ResponseWriter, r *http.Request) {
 
+}
+
+// testing area for functions
+func TestCreatePatient(w http.ResponseWriter, r *http.Request) {
+	if err := r.ParseForm(); err != nil {
+		fmt.Printf("Couldn't parse form: %v", err)
+	}
+
+	var patient *models.Patient
+	if err := schema.NewDecoder().Decode(patient, r.Form); err != nil {
+		fmt.Printf("Could not decode patient: %v", err)
+	}
+
+	p := patient.CreatePatient()
+	res, _ := json.Marshal(p)
+	w.WriteHeader(http.StatusOK)
+	w.Write(res)
 }
 
 //helper functions
