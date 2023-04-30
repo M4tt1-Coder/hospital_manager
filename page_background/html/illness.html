@@ -34,12 +34,28 @@
                     <input type="text" id="namefield" name="namefield"></input>
                 </div>
                 <div class="kind" id="kindfieldarea">
-                    
+                    <label for="kindfield">Kind: </label>
+                    <input type="text" id="kindfield" name="kindfield"></input>             
                 </div>
+                <div class="can_be_healed" id="can_be_healed_fieldarea">
+                    <label for="can_be_healed_field">Can_Be_Healed: </label>
+                    <input type="text" id="can_be_healed_field" name="can_be_healed_field"></input>
+                </div>
+
+                <button type="submit" id="update_illness_button" name="update_illness_button" value="Update Illness"></button>
             </form>
         </div>
 
+        <div class="delete_illness" id="delete_illness">
+            <form action="http://localhost:8080/illness/delete/{name}">
+                <button type="submit" id="delete_illness" name="delete_illness" value="Delete"></button>
+            </form>
+        </div>
+
+        <div class="GoToPatientPage" id="go_to_patient">
+            <form action="http://localhost:8080/patient/">
+                <button type="submit" id="goto_patient" name="goto_patient">Go to Patientpage</button>
+            </form>
+        </div>
     </body>
-
-
 </html>

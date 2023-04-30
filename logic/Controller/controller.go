@@ -2,22 +2,25 @@ package Controller
 
 import (
 	"encoding/json"
-	"fmt"
+	"log"
 	"net/http"
 	"strconv"
 
-	"github.com/M4TT1-Coder/Hospital_manager/logic/json_parser"
 	"github.com/M4TT1-Coder/Hospital_manager/logic/models"
 	"github.com/gorilla/mux"
-	"github.com/gorilla/schema"
 )
 
 // functions for patient model
 func CreatePatient(w http.ResponseWriter, r *http.Request) {
-	patient := &models.Patient{}
-	json_parser.ParseBody(r, patient)
-	p := patient.CreatePatient()
-	res, _ := json.Marshal(p)
+	decoder := json.NewDecoder(r.Body)
+	var p models.Patient
+	err := decoder.Decode(&p)
+	if err != nil {
+		log.Printf("Error decoding: %v", err)
+	}
+
+	pa := p.CreatePatient()
+	res, _ := json.Marshal(pa)
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -43,8 +46,15 @@ func DeletePatientByName(w http.ResponseWriter, r *http.Request) {
 }
 
 func UpdatePatientByName(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	name := vars["name"]
+	// vars := mux.Vars(r)
+	// name := vars["name"]
+	//just usefull when parameters are served in the urlpath
+	decoder := json.NewDecoder(r.Body)
+	var vars map[string]string
+	err := decoder.Decode(&vars)
+	if err != nil {
+		log.Printf("Error decoding: %v", err)
+	}
 	age, err1 := strconv.ParseInt(vars["age"], 0, 0)
 	if err1 != nil {
 		http.Error(w, err1.Error(), http.StatusBadRequest)
@@ -54,8 +64,9 @@ func UpdatePatientByName(w http.ResponseWriter, r *http.Request) {
 	if err2 != nil {
 		http.Error(w, err2.Error(), http.StatusBadRequest)
 	}
-	//get the illness by name but better convert illness passed by the user
+	//get the illnesps by name but better convert illness passed by the user
 	ill := vars["illness"]
+	name := vars["name"]
 	i := models.UpdatePatientByName(name, age, rm_num, ill)
 	res, _ := json.Marshal(i)
 	w.Header().Set("Content-Type", "application/json")
@@ -65,10 +76,15 @@ func UpdatePatientByName(w http.ResponseWriter, r *http.Request) {
 
 // functions for illness model
 func CreateIllness(w http.ResponseWriter, r *http.Request) {
-	illness := &models.Illness{}
-	json_parser.ParseBody(r, illness)
-	i := illness.CreateIllness()
-	res, _ := json.Marshal(i)
+	decoder := json.NewDecoder(r.Body)
+	var ill models.Illness
+	err := decoder.Decode(&ill)
+	if err != nil {
+		log.Printf("Error decoding: %v", err)
+	}
+
+	illness := ill.CreateIllness()
+	res, _ := json.Marshal(illness)
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -94,9 +110,16 @@ func DeleteIllnessByName(w http.ResponseWriter, r *http.Request) {
 }
 
 func UpdateIllnessByName(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
+	decoder := json.NewDecoder(r.Body)
+	var vars map[string]string
+	err := decoder.Decode(&vars)
+	if err != nil {
+		log.Printf("Error decoding: %v", err)
+	}
 	name := vars["name"]
 	kind := vars["kind"]
+	//be careful with the json body of the request the
+	//field 'can_be_healed' must be a string
 	cbh, err := strconv.ParseBool(vars["can_be_healed"])
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusConflict)
@@ -114,21 +137,19 @@ func OpenPatientPage(w http.ResponseWriter, r *http.Request) {
 }
 
 // testing area for functions
-func TestCreatePatient(w http.ResponseWriter, r *http.Request) {
-	if err := r.ParseForm(); err != nil {
-		fmt.Printf("Couldn't parse form: %v", err)
-	}
+// func TestCreatePatient(w http.ResponseWriter, r *http.Request) {
+// 	decoder := json.NewDecoder(r.Body)
+// 	var p models.Patient
+// 	err := decoder.Decode(&p)
+// 	if err != nil {
+// 		log.Printf("Error decoding: %v", err)
+// 	}
 
-	var patient *models.Patient
-	if err := schema.NewDecoder().Decode(patient, r.Form); err != nil {
-		fmt.Printf("Could not decode patient: %v", err)
-	}
-
-	p := patient.CreatePatient()
-	res, _ := json.Marshal(p)
-	w.WriteHeader(http.StatusOK)
-	w.Write(res)
-}
+// 	pa := p.CreatePatient()
+// 	res, _ := json.Marshal(pa)
+// 	w.WriteHeader(http.StatusOK)
+// 	w.Write(res)
+// }
 
 //helper functions
 

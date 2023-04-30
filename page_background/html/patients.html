@@ -47,21 +47,21 @@
                 </div>
                 
                 <!--update patient section-->
-                <button type="submit" id="update_patient_button" name="update_patient_button" value="Update"></button>
+                <button type="submit" id="update_patient_button" name="update_patient_button" value="Update Patient"></button>
             </form>
         </div>
 
         <!--delete patient-->
 
         <!--look how to delete the selected item from the unordered list above-->
-        <div class="deletepatient">     
+        <div class="deletepatient" id="delete_patient">     
             <form action="http://localhost:8080/patient/delete">
                 <button type="submit" name="delete_patient" value="Delete" id="delete_patient"></button>
             </form>            
         </div>
 
         <!--go to illness page-->
-        <div class="GoToIllnessPage">
+        <div class="GoToIllnessPage" id="goto_illness">
             <form action="http://localhost:8080/illness/">
                 <button type="submit" id="goto_illness" name="goto_illness">Go to Illnesspage</button>
             </form>
