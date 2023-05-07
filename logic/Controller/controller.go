@@ -133,7 +133,12 @@ func UpdateIllnessByName(w http.ResponseWriter, r *http.Request) {
 }
 
 func OpenPatientPage(w http.ResponseWriter, r *http.Request) {
-
+	if r.URL.Path != "/patients.html" {
+		r.URL.Path = "/patients.html"
+	}
+	http.ServeFile(w, r, "/patients.html")
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
 }
 
 // testing area for functions

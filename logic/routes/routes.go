@@ -17,6 +17,8 @@ var AllRoutes = func(router *mux.Router) {
 	router.HandleFunc("/illness/update/", Controller.UpdateIllnessByName).Methods("PUT")
 
 	//handle static html files
+	// router.HandleFunc("/patient/", Controller.OpenPatientPage).Methods("GET")
+
 	router.HandleFunc("/patient/", Controller.OpenPatientPage).Methods("GET")
 
 	//add some routes for all html pages
