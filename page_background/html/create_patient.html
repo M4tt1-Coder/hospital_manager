@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8"/>
-        <meta name="description" content="The page script to create a page model and store."/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="author" content="M4TT1"/>
-        <base href="http://localhost:8080/"/>
+        <meta charset="utf-8">
+        <meta name="description" content="The page script to create a patient model and store.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="M4TT1">
+        <base href="http://localhost:8080/">
         <title>Create Patient</title>
     </head>
 
@@ -14,39 +14,31 @@
         <div class="insertion_fields" id="insertion_fields">
             <form action="http://localhost:8080/patient/create/">
                 <div class="field" id="name">
-                    <label for="name_field">
-                        Name: 
-                    </label>
+                    <label for="name_field">Name:</label>
                     <input type="text" name="name_field" id="name_field">
                 </div>
                 <div class="field" id="age">
-                    <label for="age_field">
-                        Age: 
-                    </label>
+                    <label for="age_field">Age: </label>
                     <input type="text" name="age_field" id="age_field">
                 </div>
                 <div class="field" id="roomnumber">
-                    <label for="rm_num_field">
-                        Roomnumber: 
-                    </label>
+                    <label for="rm_num_field">Roomnumber: </label>
                     <input type="text" name="rm_num_field" id="rm_num_field">
                 </div>
                 <div class="field" id="illness">
-                    <label for="illness_field">
-                        Illness: 
-                    </label>
+                    <label for="illness_field">Illness: </label>
                     <input type="text" id="illness_field" name="illness_field">
                 </div>
 
                 <!--submit the patient model to backend with create button-->
 
-                <button type="submit" id="create_patient_button" name="create_patient_button" value="Create Patient"></button>
+                <button type="submit" id="create_patient_button" name="create_patient_button" value="Create Patient">Create Patient</button>
             </form>
         </div>
 
         <div class="GoBack" id="GoBackToPatient">
             <form action="http://localhost:8080/patient/">
-                <button type="submit" name="GoBackToPatient_Button" id="GoBackToPatient_Button" value="Go Back"></button>
+                <button type="submit" name="GoBackToPatient_Button" id="GoBackToPatient_Button" value="Go Back">Go Back</button>
             </form>
         </div>
     </body>
