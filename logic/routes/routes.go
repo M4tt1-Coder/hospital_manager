@@ -2,6 +2,7 @@ package routes
 
 import (
 	"github.com/M4TT1-Coder/Hospital_manager/logic/Controller"
+	"github.com/M4TT1-Coder/Hospital_manager/logic/File_Server"
 	"github.com/gorilla/mux"
 )
 
@@ -17,9 +18,8 @@ var AllRoutes = func(router *mux.Router) {
 	router.HandleFunc("/illness/update/", Controller.UpdateIllnessByName).Methods("PUT")
 
 	//handle static html files
-	// router.HandleFunc("/patient/", Controller.OpenPatientPage).Methods("GET")
 
-	router.HandleFunc("/patient/", Controller.OpenPatientPage).Methods("GET")
+	router.HandleFunc("/patient/", File_Server.ServePatientFile).Methods("GET")
 
 	//add some routes for all html pages
 

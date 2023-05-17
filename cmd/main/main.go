@@ -19,19 +19,7 @@ func main() {
 	println("Server is running on port 8080")
 
 	//where we serve all html files
-	// fs := http.FileServer(http.Dir("./page_background/html"))
-	// r.PathPrefix("/").Handler((http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-	// 	if r.URL.Path == "/" {
-	// 		//the default page
-	// 		r.URL.Path  = "/patients.hmtl"
-	// 	}
-
-	// 	fs.ServeHTTP(w, r)
-	// }))).Methods("GET")
-
-	fileserver := http.FileServer(http.Dir("./page_background/html"))
-	http.Handle("/patient/", fileserver)
-
+	r.PathPrefix("/page_background/html/").Handler(http.StripPrefix("/page_background/html/", http.FileServer(http.Dir())))
 	//__________________
 
 	log.Fatal(http.ListenAndServe(":8080", r))
@@ -39,3 +27,7 @@ func main() {
 	//test how I can serve http files
 	//-> https://www.alexedwards.net/blog/serving-static-sites-with-go
 }
+
+//possibilities to serve static html files:
+//1) use html templates -> https://hakk.dev/docs/golang-html-template/
+//2) use PathPrefix of mux gorilla and call the files by your own
