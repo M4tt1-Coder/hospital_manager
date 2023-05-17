@@ -19,7 +19,14 @@ func main() {
 	println("Server is running on port 8080")
 
 	//where we serve all html files
-	r.PathPrefix("/page_background/html/").Handler(http.StripPrefix("/page_background/html/", http.FileServer(http.Dir())))
+	//first option
+	r.PathPrefix("/patient/").Handler(http.StripPrefix("/patient/", http.FileServer(http.Dir("./static/"))))
+	//second try
+	//r.PathPrefix("/").Handler(http.FileServer(http.Dir("./page_background/html/")))
+	//https://hackthedeveloper.com/golang-serve-static-files-gorilla-mux/
+	//https://www.codershood.info/2020/02/16/serving-static-files-in-golang-using-gorilla-mux/
+	//?
+	//how can I use fileserver with pathprefix?
 	//__________________
 
 	log.Fatal(http.ListenAndServe(":8080", r))
