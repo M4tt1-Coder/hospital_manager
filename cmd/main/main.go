@@ -20,7 +20,8 @@ func main() {
 
 	//where we serve all html files
 	//first option
-	r.PathPrefix("/patient/").Handler(http.StripPrefix("/patient/", http.FileServer(http.Dir("./static/"))))
+	fs := http.FileServer(http.Dir("./static/"))
+	r.PathPrefix("/patient/").Handler(http.StripPrefix("/patient/", fs))
 	//second try
 	//r.PathPrefix("/").Handler(http.FileServer(http.Dir("./page_background/html/")))
 	//https://hackthedeveloper.com/golang-serve-static-files-gorilla-mux/
