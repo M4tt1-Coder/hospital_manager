@@ -7,12 +7,12 @@
         <meta name="author" content="M4TT1">
         <base href="http://localhost:8080/">
         <title>Patients</title>
-
+        <link href="css_files/patients_des.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <!--The create patient part-->
         <div class="CreatePatient">
-            <form action="http://localhost:8080/" target="_blank">
+            <form action="http://localhost:8080/" target="_blank" id="CrePatButEnv">
                 <button type="submit" name="CreatePatButton" id="CreatePatButton">Create Patient</button>
             </form>
         </div>
@@ -21,7 +21,7 @@
 
         <div class="list" id="patientlist">
             <ul>
-                <li>Example content</li><!--use typescript for communicating with golang server-->
+                <!--use typescript for communicating with golang server-->
             </ul>
         </div>
         <!--infos of a specific patient-->
@@ -31,23 +31,28 @@
                     <label for="namefield">Name: </label>
                     <input type="text" name="namefield" id="namefield">
                 </div>
+                <p></p>
                 <div class="age" id="agefield_area">
                     <label for="agefield">Age: </label>
                     <input type="text" name="agefield" id="agefield">
                 </div>
+                <p></p>
                 <div class="roomnumber" id="rm_num_fieldarea">
                     <label for="rm_num_field">Roomnumber: </label>
                     <input type="text" name="rm_num_field" id="rm_num_field">
                 </div>
+                <p></p>
                 <div class="illness" id="ill_fieldarea">
                     <label for="ill_field">Illness: </label>
                     <input type="text" id="ill_field" name="ill_field">
                 </div>
+                <p></p>
                 <!--update patient section-->
                 <button type="submit" id="update_patient_button" name="update_patient_button" value="Update Patient">Update Patient</button>
             </form>
         </div>
 
+        <p></p>
         <!--delete patient-->
 
         <!--look how to delete the selected item from the unordered list above-->

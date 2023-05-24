@@ -1,0 +1,28 @@
+.CreatePatient > #CrePatButEnv > #CreatePatButton{
+    background-color: darkgray;
+    border:black;
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+/*thats correct*/
+.list > ul{
+    background-color: beige;
+    padding: 60px 60px 60px 60px;
+}
+
+.infos{
+    background-color: red;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.infos > form input[type="text"]{
+    background-color: aqua;
+    font-size: 18;
+    border-radius: 4px;
+    position:fixed;
+    left: 125px;
+}
+
+/* div{
+    background-color: black;
+} */
