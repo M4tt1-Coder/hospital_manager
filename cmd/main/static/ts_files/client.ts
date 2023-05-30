@@ -16,7 +16,7 @@ interface Patient{
 
 //load (ul)-list of all patients
 //-> https://youtu.be/X-mUYxLjqLY ... video create unordered list
-
+//https://youtu.be/HNV28WcHLns
 export class ListTemplate{
     constructor(private container: HTMLUListElement){}
     
@@ -34,4 +34,8 @@ export class ListTemplate{
             this.container.append(li);
         }
     }
+}
+
+function show_list(){
+    
 }

@@ -1,0 +1,42 @@
+div.CreateIllness > #Cre_Ill_Area > #CreateIllnessButton{
+    background-color: bisque;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+div.list{
+    background-color: black;
+}
+
+div.list > ul{
+    background: red;
+    background-color: aqua;
+}
+
+div.list > #list > li{
+    margin:auto;
+    color:brown;
+    padding:6px;
+}
+
+div.infos > form input[type="text"]{
+    background-color: aqua;
+    font-size: 18;
+    border-radius: 4px;
+    position:fixed;
+    left: 125px;
+}
+
+div.delete_illness > #del_ill_area > #delete_illness_Button{
+    size: 150px;
+    background-color: lightgreen;
+    font-family: Arial;
+
+}
+
+div.GoToPatientPage > #back_area > #goto_patient{
+    size:23524px;
+    background-color:firebrickcr;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}

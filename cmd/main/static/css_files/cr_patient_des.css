@@ -1,0 +1,8 @@
+div.insertion_fields > form input[type="text"]{
+    background-color:chartreuse;
+    font-size: 145;
+    border-radius: 12px;
+    position:fixed;
+    left: 125px;
+   
+}
