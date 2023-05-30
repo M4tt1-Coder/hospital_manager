@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="M4TT1">
         <base href="http://localhost:8080/">
+        <link href="css_files/illness_des.css" rel="stylesheet" type="text/css">
         <title>Illnesses</title>
     </head>
 
@@ -13,7 +14,7 @@
         <!--create illness-->
         <div class="CreateIllness" id="CreateIllness">
             <!--Check logic for open a simple htmlpage: open the link -->
-            <form action="http://localhost:8080/" target="_blank">
+            <form action="http://localhost:8080/" target="_blank" id="Cre_Ill_Area">
                 <button type="submit" name="CreateIllness" id="CreateIllnessButton">Create Illness</button>
             </form>
         </div>
@@ -47,13 +48,13 @@
         </div>
 
         <div class="delete_illness" id="delete_illness">
-            <form action="http://localhost:8080/illness/delete/{name}">
+            <form id="del_ill_area" action="http://localhost:8080/illness/delete/{name}">
                 <button type="submit" id="delete_illness_Button" name="delete_illness_Button" value="Delete">Delete</button>
             </form>
         </div>
 
         <div class="GoToPatientPage" id="go_to_patient">
-            <form action="http://localhost:8080/patient/">
+            <form action="http://localhost:8080/patient/" id="back_area">
                 <button type="submit" id="goto_patient" name="goto_patient">Go to Patientpage</button>
             </form>
         </div>

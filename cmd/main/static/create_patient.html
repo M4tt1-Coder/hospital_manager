@@ -7,12 +7,13 @@
         <meta name="author" content="M4TT1">
         <base href="http://localhost:8080/">
         <title>Create Patient</title>
+        <link href="css_files/cr_patient_des.css" rel="stylesheet" type="text/css">
     </head>
 
     <body>
         <!--single scope for the enter fields-->
         <div class="insertion_fields" id="insertion_fields">
-            <form action="http://localhost:8080/patient/create/">
+            <form action="http://localhost:8080/patient/create/" id="info_area">
                 <div class="field" id="name">
                     <label for="name_field">Name:</label>
                     <input type="text" name="name_field" id="name_field">
