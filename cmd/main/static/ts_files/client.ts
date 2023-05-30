@@ -1,11 +1,6 @@
+import mysql from 'mysql';
+import {pool} from './database'
 //group of model interfaces
-
-// class Patient{
-//     Name?: string;
-//     Age: number;
-//     Roomnumber: number;
-//     Illness?: string;
-// }
 
 interface Patient{
     Name: string;
@@ -36,6 +31,9 @@ export class ListTemplate{
     }
 }
 
-function show_list(){
+function load_patient_list(){
+    //load patients
+    //get html element
     
+     
 }
