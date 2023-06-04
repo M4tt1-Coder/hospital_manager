@@ -10,7 +10,7 @@
         <link href="css_files/patients_des.css" rel="stylesheet" type="text/css">
         <!--https://stackoverflow.com/questions/13237215/executing-javascript-function-from-html-without-event-->
         <script src="ts_files/client.js"></script>
-        <script type="text/javascript">
+        <script>
             load_patient_list();
         </script>
     </head>
@@ -24,10 +24,7 @@
 
         <!--list of all patients -->
 
-        <div class="list" id="patientlist">
-            <ul>
-                <!--use typescript for communicating with golang server-->
-            </ul>
+        <div class="list" id="list">
         </div>
         <!--infos of a specific patient-->
         <div class="infos" id="patientinfos">
