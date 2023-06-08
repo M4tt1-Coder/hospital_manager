@@ -38,7 +38,7 @@ function load_patient_list(){
     var div = document.getElementById("list");
 
     var ul = document.createElement("ul");
-
+ 
     // for (let i = 0; i < load_patient_list.length; i++){
     //     const li = document.createElement("li");
 
@@ -49,10 +49,10 @@ function load_patient_list(){
     
     //testing _______
     var li = document.createElement("li");
-    var text = document.createTextNode("Test");
-    li.appendChild(text);
+    var text = "text";
+    li.append(text);
 
-    ul.appendChild(li);
+    ul.append(li);
     //________
-    div?.appendChild(ul);
+    div?.append(ul);
 }

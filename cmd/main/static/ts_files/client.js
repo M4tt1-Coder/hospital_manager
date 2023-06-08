@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ListTemplate = void 0;
+exports.load_patient_list = exports.ListTemplate = void 0;
 //load (ul)-list of all patients
 //-> https://youtu.be/X-mUYxLjqLY ... video create unordered list
 //https://youtu.be/HNV28WcHLns
@@ -25,7 +25,7 @@ function load_patient_list() {
     //load patients
     //const patients = Patient[];
     //get html element
-    var div = document.getElementById("patientlist");
+    var div = document.getElementById("list");
     var ul = document.createElement("ul");
     // for (let i = 0; i < load_patient_list.length; i++){
     //     const li = document.createElement("li");
@@ -34,9 +34,10 @@ function load_patient_list() {
     // }   
     //testing _______
     var li = document.createElement("li");
-    var text = document.createTextNode("Test");
-    li.appendChild(text);
-    ul.appendChild(li);
+    var text = "Test";
+    li.append(text);
+    ul.append(li);
     //________
     div === null || div === void 0 ? void 0 : div.appendChild(ul);
 }
+
