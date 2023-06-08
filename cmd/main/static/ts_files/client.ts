@@ -1,4 +1,4 @@
-import mysql from 'mysql';
+//import mysql from 'mysql';
 import {pool} from './database'
 //group of model interfaces
 
@@ -33,7 +33,26 @@ export class ListTemplate{
 
 function load_patient_list(){
     //load patients
+    //const patients = Patient[];
     //get html element
+    var div = document.getElementById("list");
+
+    var ul = document.createElement("ul");
+ 
+    // for (let i = 0; i < load_patient_list.length; i++){
+    //     const li = document.createElement("li");
+
+    //     li.innerText = patients[i].Name;
+
+    //     ul.append(li);
+    // }   
     
-     
+    //testing _______
+    var li = document.createElement("li");
+    var text = "text";
+    li.append(text);
+
+    ul.append(li);
+    //________
+    div?.append(ul);
 }
