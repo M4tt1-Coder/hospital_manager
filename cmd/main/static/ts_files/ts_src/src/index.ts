@@ -1,19 +1,40 @@
 import { AppDataSource } from "./data-source"
-import {Patient, Illness} from "./entity/models"
+import {EPatient, EIllness} from "./entity/models"
+
 
 AppDataSource.initialize().then(async () => {
 
-    function load_patient_list(){
-        //load all patients in database
+    // async function All_Patients(): Patient[]{
+    //     //load all patients in database
+    //     var patients = await AppDataSource.manager.find(patients);
+    //     var output = [];
+    //     for(var i = 0; i < patients.length; i++){
+    //         var p = Patient{Name: patients[i].name, Age: patients[i].Age, Roomnumber: patients[i].Roomnumber, }
+    //     }    
+    // }
 
-        //get html div element
-        var div = document.getElementById("")
-    }
 }).catch(error => console.log(error))
 
-// function load_patient_list(){
-//     //load all patients in database
+//can call function in html file
+//need to get data right from the database to not block 
+const patient_repository = AppDataSource.getRepository(EPatient);
 
-//     //get html div element
-//     var div = document.getElementById("list");
-// }
+async function load_patient_list(){
+    //check to get the data from mysql database right
+    var patients = await AppDataSource.manager.find(EPatient);
+    //var patients = patient_repository.createQueryBuilder('patient').select(); 
+    //get html div element
+    var div = document.getElementById("list");
+    var ul = document.createElement("ul");
+    for (var i = 0; i < patients.length; i++){
+        var li = document.createElement('li');
+        li.innerText = patients[i].name;
+        ul.append(li);
+    }
+
+    var li = document.createElement('li');
+    li.innerText = "lol";
+    ul.append(li);     
+
+    div?.append(ul);
+}
