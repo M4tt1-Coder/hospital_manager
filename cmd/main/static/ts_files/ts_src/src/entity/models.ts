@@ -5,25 +5,25 @@ export class EPatient{
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    created_at: Date;
+    @Column({type: "datetime2"})
+    created_at: string;
     
-    @Column()
-    updated_at: Date;
+    @Column({type: "datetime2"})
+    updated_at: string;
 
-    @Column()
-    deleted_at: Date;
+    @Column({type: "datetime2"})
+    deleted_at: string;
 
-    @Column()
+    @Column({type: "longtext"})
     name: string;
 
-    @Column()
+    @Column({type: "bigint"})
     age: number;
 
-    @Column()
+    @Column({type: "bigint"})
     roomnumber: number;
 
-    @Column()
+    @Column({type: "longtext"})
     illness: string;
 }
 
@@ -50,5 +50,3 @@ export class EIllness{
     @Column()
     can_be_healed: boolean;
 }
-
-
