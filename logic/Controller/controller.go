@@ -25,6 +25,14 @@ func CreatePatient(w http.ResponseWriter, r *http.Request) {
 	w.Write(res)
 }
 
+func GetAll_Patients(w http.ResponseWriter, r *http.Request) {
+	patients := models.GetAllPatients()
+	res, _ := json.Marshal(patients)
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	w.Write(res)
+}
+
 func GetPatientByName(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	name := vars["name"] //maybe when its needed do a strconx to string here
@@ -94,6 +102,14 @@ func GetIllnessByName(w http.ResponseWriter, r *http.Request) {
 	name := vars["name"]
 	i, _ := models.GetIllnessByName(name)
 	res, _ := json.Marshal(i)
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	w.Write(res)
+}
+
+func GetAll_Illnesses(w http.ResponseWriter, r *http.Request) {
+	illnesses := models.GetAllIllnesses()
+	res, _ := json.Marshal(illnesses)
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)

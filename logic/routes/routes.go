@@ -11,11 +11,12 @@ var AllRoutes = func(router *mux.Router) {
 	router.HandleFunc("/patient/byname/{name}", Controller.GetPatientByName).Methods("GET")
 	router.HandleFunc("/patient/delete/{name}", Controller.DeletePatientByName).Methods("DELETE")
 	router.HandleFunc("/patient/update/", Controller.UpdatePatientByName).Methods("PUT") //Methods("UPDATE")
-	//router.HandleFunc()
+	router.HandleFunc("/patient/get_all/", Controller.GetAll_Patients).Methods("GET")
 	router.HandleFunc("/illness/create/", Controller.CreateIllness).Methods("POST") //Methods("CREATE")
 	router.HandleFunc("/illness/get/{name}", Controller.GetIllnessByName).Methods("GET")
 	router.HandleFunc("/illness/delete/{name}", Controller.DeleteIllnessByName).Methods("DELETE")
 	router.HandleFunc("/illness/update/", Controller.UpdateIllnessByName).Methods("PUT")
+	router.HandleFunc("/illness/get_all/", Controller.GetAll_Illnesses).Methods("GET")
 
 	//handle static html files
 	//router.HandleFunc("/", Controller.OpenPatientPage).Methods("GET")
