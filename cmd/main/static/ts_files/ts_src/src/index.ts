@@ -21,7 +21,9 @@ const patient_repository = AppDataSource.getRepository(EPatient);
 
 async function load_patient_list(){
     //check to get the data from mysql database right
-    var patients = await AppDataSource.manager.find(EPatient);
+    var patients = await patient_repository.query(`
+    SELECT * 
+    FROM patients`);
     //var patients = patient_repository.createQueryBuilder('patient').select(); 
     //get html div element
     var div = document.getElementById("list");
