@@ -8,7 +8,7 @@ import (
 // Add all routes for a http requests here
 var AllRoutes = func(router *mux.Router) {
 	router.HandleFunc("/patient/create/", Controller.CreatePatient).Methods("POST") //!!for testing
-	router.HandleFunc("/patient/byname/{name}", Controller.GetPatientByName).Methods("GET")
+	router.HandleFunc("/patient/get/{name}", Controller.GetPatientByName).Methods("GET")
 	router.HandleFunc("/patient/delete/{name}", Controller.DeletePatientByName).Methods("DELETE")
 	router.HandleFunc("/patient/update/", Controller.UpdatePatientByName).Methods("PUT") //Methods("UPDATE")
 	router.HandleFunc("/patient/get_all/", Controller.GetAll_Patients).Methods("GET")
