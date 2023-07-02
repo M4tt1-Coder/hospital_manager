@@ -20,6 +20,7 @@ func main() {
 
 	//where we serve all html files
 	//first option
+	//delete when using svelte
 	fs := http.FileServer(http.Dir("./static/"))
 	r.PathPrefix("/").Handler(http.StripPrefix("/", fs))
 	//second try
