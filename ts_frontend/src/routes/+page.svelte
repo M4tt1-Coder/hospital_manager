@@ -40,7 +40,8 @@
                 ask Liam:
                     - how can I open other svelte page in browser?
                     - use of promise object?
-                    - for loop in svelte?-->   
+                    - for loop in svelte?
+                    - how to enable cors for fetch?-->   
             </button>
         </div>
         <!--list of all patients-->
