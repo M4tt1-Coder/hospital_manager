@@ -21,6 +21,8 @@ func CreatePatient(w http.ResponseWriter, r *http.Request) {
 
 	pa := p.CreatePatient()
 	res, _ := json.Marshal(pa)
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -29,6 +31,7 @@ func GetAll_Patients(w http.ResponseWriter, r *http.Request) {
 	patients := models.GetAllPatients()
 	res, _ := json.Marshal(patients)
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -39,6 +42,7 @@ func GetPatientByName(w http.ResponseWriter, r *http.Request) {
 	patient, _ := models.GetPatientByName(name)
 	res, _ := json.Marshal(patient)
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -49,6 +53,7 @@ func DeletePatientByName(w http.ResponseWriter, r *http.Request) {
 	patient := models.DeletePatientByName(name)
 	res, _ := json.Marshal(patient)
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -78,6 +83,7 @@ func UpdatePatientByName(w http.ResponseWriter, r *http.Request) {
 	i := models.UpdatePatientByName(name, age, rm_num, ill)
 	res, _ := json.Marshal(i)
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -93,6 +99,8 @@ func CreateIllness(w http.ResponseWriter, r *http.Request) {
 
 	illness := ill.CreateIllness()
 	res, _ := json.Marshal(illness)
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -103,6 +111,7 @@ func GetIllnessByName(w http.ResponseWriter, r *http.Request) {
 	i, _ := models.GetIllnessByName(name)
 	res, _ := json.Marshal(i)
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -111,6 +120,7 @@ func GetAll_Illnesses(w http.ResponseWriter, r *http.Request) {
 	illnesses := models.GetAllIllnesses()
 	res, _ := json.Marshal(illnesses)
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -121,6 +131,7 @@ func DeleteIllnessByName(w http.ResponseWriter, r *http.Request) {
 	p := models.DeleteIllnessByName(name)
 	res, _ := json.Marshal(p)
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -144,6 +155,7 @@ func UpdateIllnessByName(w http.ResponseWriter, r *http.Request) {
 	updatedill := models.UpdateIllnessByName(name, kind, cbh)
 	res, _ := json.Marshal(updatedill)
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
