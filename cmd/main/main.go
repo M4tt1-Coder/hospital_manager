@@ -18,20 +18,18 @@ func main() {
 	http.Handle("/", r)
 	println("Server is running on port 8080")
 
-	//where we serve all html files
-	//first option
 	//delete when using svelte
 	fs := http.FileServer(http.Dir("./static/"))
 	r.PathPrefix("/").Handler(http.StripPrefix("/", fs))
-	//second try
-	//r.PathPrefix("/").Handler(http.FileServer(http.Dir("./page_background/html/")))
-	//https://hackthedeveloper.com/golang-serve-static-files-gorilla-mux/
-	//https://www.codershood.info/2020/02/16/serving-static-files-in-golang-using-gorilla-mux/
-	//?
-	//how can I use fileserver with pathprefix?
-	//__________________
 
 	log.Fatal(http.ListenAndServe(":8080", r))
+
+	//cors headers
+	// credentials := handlers.AllowCredentials()
+	// origin := handlers.AllowedOrigins([]string{"*"})
+	// methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE", "OPTIONS"})
+
+	// log.Fatal(http.ListenAndServe(":8080", handlers.CORS(credentials, methods, origin)(r)))
 
 	//test how I can serve http files
 	//-> https://www.alexedwards.net/blog/serving-static-sites-with-go
