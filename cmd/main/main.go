@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/M4TT1-Coder/Hospital_manager/logic/routes"
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
 
@@ -22,14 +23,13 @@ func main() {
 	fs := http.FileServer(http.Dir("./static/"))
 	r.PathPrefix("/").Handler(http.StripPrefix("/", fs))
 
-	log.Fatal(http.ListenAndServe(":8080", r))
+	//log.Fatal(http.ListenAndServe(":8080", r))
 
-	//cors headers
-	// credentials := handlers.AllowCredentials()
-	// origin := handlers.AllowedOrigins([]string{"*"})
-	// methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE", "OPTIONS"})
-
-	// log.Fatal(http.ListenAndServe(":8080", handlers.CORS(credentials, methods, origin)(r)))
+	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(
+		handlers.AllowedOrigins([]string{"*"}),
+		handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}),
+		handlers.AllowedHeaders([]string{"Accept", "Content-Type", "Content-Length", "Accept-Encoding", "X-CSRF-Token", "Authorization"}),
+	)(r)))
 
 	//test how I can serve http files
 	//-> https://www.alexedwards.net/blog/serving-static-sites-with-go

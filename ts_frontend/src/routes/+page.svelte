@@ -6,7 +6,7 @@
 
     //open create patient svelte page
     function open_create_patient_svelte(){
-        goto("/cr_pat");
+        goto("/api/cr_pat");
     }
 
     function removeAllChildNodes(parent: Element): void{
