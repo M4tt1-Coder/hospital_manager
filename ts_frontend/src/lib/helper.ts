@@ -70,6 +70,7 @@ export async function createIllness(name: string, kind: string, cbh: boolean){
         }
         const illness = await response.json();
         console.log(illness);
+        reloadPage();
         return illness;        
     }catch (err){
         console.log(err);
@@ -95,6 +96,7 @@ export async function createPatient(name: string, age: number, roomnumber: numbe
 
         const patient = await response.json();
         console.log(patient);
+        reloadPage();
         return patient;
     }catch(e){
         console.log(e);

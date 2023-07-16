@@ -1,6 +1,8 @@
 <script lang="ts">
-    import {createPatient} from "../../../lib/helper"
-    import {goto} from "$app/navigation"
+    import {createPatient} from "../../../lib/helper";
+    import {goto} from "$app/navigation";
+    import type {PageData} from "./$types";
+    export let data: PageData;
 
     function Back(){
         goto("../");
@@ -32,7 +34,13 @@
         </div>
         <div class="form-group" id="illness">
             <label for="illness">Illness</label>
-            <input type="text" bind:value={illness} class="form-control" id="illness" placeholder="Illness">
+            <select bind:value={illness} class="form-control" id="illness">
+                {#each data.illnesses as illness}
+                    <option value={illness.name}>
+                        {illness.name}
+                    </option>
+                {/each}
+            </select>    
         </div>
 
         <button type="button" on:click={() => {createPatient(name, age, roomnumber, illness)}}>Create</button>
