@@ -9,6 +9,10 @@
         goto("/api/cr_pat");
     }
 
+    function open_illness_svelte(){
+        goto("/api/illness");
+    }
+
     function removeAllChildNodes(parent: Element): void{
         while (parent.firstChild) {
             parent.removeChild(parent.firstChild);            
@@ -52,7 +56,6 @@
                 div?.appendChild(age);
                 div?.appendChild(roomnumber);
                 div?.appendChild(illness);
-            
             }
         }
     }
@@ -64,6 +67,7 @@
 </script>
 
 <div id="patient_page">
+    <button type="button" on:click={() => open_illness_svelte()}>Illness</button>
     <div id="entrance" class="grid grid-cols-1 gap-4 min-w-full md:min-w-[750px]">
         <h3 class="text-center py-6">Create a Patient</h3>
         <div id="open_cr_pat" class="card p-4 w-full text-token space-y-4">
@@ -103,7 +107,7 @@
         <p></p>
         {#if show_info_fields}
             <label>
-                Patientname: 
+                Patientname:
                 <!-- <input type="text" bind:value={patient_name}/>-->
                 <select bind:value={patient_name}>
                     {#each data.patients as patient}
@@ -112,7 +116,7 @@
                         </option>
                     {/each}
                 </select>
-                <button type="button" on:click={() => deletePatient(patient_name)} class="btn btn-sm variant-filled-secondary">Delete</button>
+                <button type="button" on:click={() => deletePatient(patient_name)} data-sveltekit-reload class="btn btn-sm variant-filled-secondary">Delete</button>
             </label> 
             <button type="button" on:click={() => fill_data_of_patient(patient_name)}>Load Data ...</button>
             <div id="fields">
