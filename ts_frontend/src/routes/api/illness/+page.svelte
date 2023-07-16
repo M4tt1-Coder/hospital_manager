@@ -51,6 +51,7 @@
 
 <div id="body">
     <button type="button" on:click={() => goto('../../')}>Patient</button>
+    <p></p>
     <div id="go_to_cr_ill">
         <button type="button" on:click={() => goto("../api/cr_ill")}>
             Create Illness
@@ -103,5 +104,48 @@
     </div>
 </div>
 <style>
+    #body > button {
+        background-color: chartreuse;
+        border-radius: 3px;
+        border: 2px solid black;    
+        color: black;
+        padding: 5px 10px;
+        text-align: center;
+        position: static;
+    }
 
+    #go_to_cr_ill > button {
+        background-color: red;
+        border-radius: 3px;
+        border: 2px solid gray;
+        color: white;
+        position: static;
+    }
+
+    #list_illness{
+        border: 3px solid black;
+        border-radius: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: left;
+        padding: 10px 10px;
+        background-color: darkorange;
+    }
+
+    #info_fields{
+        border: 3px solid black;
+        border-radius: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: left;
+        padding: 10px 10px;
+        background-color: palevioletred;
+    }
+
+    #fields{
+        border: 3px solid black;
+        border-radius: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: left;
+        padding: 10px 10px;
+        background-color: palegreen;
+    }
 </style>

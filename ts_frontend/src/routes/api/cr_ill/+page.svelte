@@ -39,5 +39,57 @@
 </div>
 
 <style>
+    #container{
+        border: 3px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: olive;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        align-items: center;
+    }
+
+    #insertion_fields{
+        display:block;
+        border: 3px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: purple;
+        font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    .form-group{
+        border:3px solid black;
+        padding:5px;
+        border-radius: 4px;
+    }
+
+    #insertion_fields > button{
+        border: 4px solid black;
+        border-radius: 10px;
+        padding: 5px;
+        align-self: center;
+        background-color: aquamarine;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #back_to_ill{
+        display:block;
+        border: 3px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: pink;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #back_to_ill > button{
+        border: 4px solid black;
+        border-radius: 10px;
+        padding: 5px;
+        align-self: center;
+        background-color: aquamarine;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
 </style>
