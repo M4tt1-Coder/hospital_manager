@@ -2,6 +2,7 @@
     import {goto } from "$app/navigation";
 	import {deleteIllness} from "../../../lib/helper";
     import type {PageData} from './$types';
+    import {fade} from "svelte/transition";
     export let data: PageData;
 
     function removeAllChildNodes(parent: Element): void {
@@ -12,7 +13,7 @@
 
     function fill_data_of_illness(name: string){
         var div = document.getElementById('fields');
-        const illnesses_infos = document.querySelector('fields');        
+        const illnesses_infos = document.querySelector('#fields');        
         if (illnesses_infos !== null) {
             removeAllChildNodes(illnesses_infos);
         }
@@ -49,7 +50,8 @@
     let illness_name = "";
 </script>
 
-<div id="body">
+<div transition:fade id="body">
+    <button type="button" on:click={() => goto('search')}>Search</button>
     <button type="button" on:click={() => goto('../../')}>Patient</button>
     <p></p>
     <div id="go_to_cr_ill">
@@ -96,7 +98,7 @@
                 <button type="button" on:click={() => deleteIllness(illness_name)} data-sveltekit-reload >Delete</button>
             </label>
             <button type="button" on:click={() => fill_data_of_illness(illness_name)}>Load Data ...</button>
-            <div id="fields">
+            <div transition:fade id="fields">
 
             </div>
         {/if}
