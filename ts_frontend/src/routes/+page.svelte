@@ -13,6 +13,10 @@
         goto("/api/illness");
     }
 
+    function open_search_svelte(){
+        goto("/api/search");
+    }
+
     function removeAllChildNodes(parent: Element): void{
         while (parent.firstChild) {
             parent.removeChild(parent.firstChild);            
@@ -67,6 +71,7 @@
 </script>
 
 <div id="patient_page">
+    <button type="button" on:click={() => open_search_svelte()}>Search</button>
     <button type="button" on:click={() => open_illness_svelte()}>Illness</button>
     <div id="entrance" class="grid grid-cols-1 gap-4 min-w-full md:min-w-[750px]">
         <h3 class="text-center py-6">Create a Patient</h3>
