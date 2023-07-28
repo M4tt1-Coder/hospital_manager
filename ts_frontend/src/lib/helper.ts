@@ -105,7 +105,7 @@ export async function createPatient(name: string, age: number, roomnumber: numbe
 
 export async function UpdatePatient(name: string, age:  number, roomnumber: number,  illness: string){
     try{
-        const fetch_body = '{"name: "'+ name+ '", age: "'+ age + '", roomnumber: "'+ roomnumber + ', "illness: "' + illness + '"}';
+        const fetch_body = '{"name": "'+ name+ '", "age": "'+ age + '", "roomnumber": "'+ roomnumber + '", "illness": "' + illness + '"}';
         console.log(fetch_body);
         const response = await fetch('http://localhost:8080/patient/update/',{
             method: 'PUT',

@@ -33,8 +33,10 @@
     $: roomNumberChange = checkProp(roomnumber, patient.roomnumber);
 
     //illness
-    let selectedIllness: string = "";
+    let selectedIllness: string = patient.illness;/*just for the start when the start begins*/
     $: illnessChange = checkProp(selectedIllness, patient.illness);
+
+
 
 </script>
 
@@ -64,9 +66,11 @@
     <p></p>
     <label transition:fly>
         Illness:
-        <select bind:value={illnesses}>
+        <select>
             {#each illnesses as illness}
-                <option value={illness.name} on:click={() => selectedIllness = illness.name}>
+                <option value={illness.name} on:click={() => {
+                    selectedIllness = illness.name;
+                }}>
                     {illness.name}
                 </option>
             {/each}
@@ -75,6 +79,12 @@
     {#if illnessChange}
         <p class="notification">Changed!</p>
     {/if}
+    <p></p>
+    <button id="submit" type="button" on:click={() => {
+        if (ageChange || illnessChange || roomNumberChange) {
+            UpdatePatient(name, age, roomnumber, selectedIllness);
+        }
+    }}>Save</button>
 </div>
 
 <style>
@@ -90,5 +100,13 @@
 
     .property > .notification{
         color: red;
+    }
+
+    .property > #submit{
+        font-size: 16px;
+        border: 3px solid black;
+        border-radius: 4px;
+        background-color: blue;
+        color: white;
     }
 </style>

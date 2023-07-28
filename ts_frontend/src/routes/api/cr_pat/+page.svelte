@@ -40,7 +40,7 @@
                         {illness.name}
                     </option>
                 {/each}
-            </select>    
+        p    </select>    
         </div>
 
         <button type="button" on:click={() => {createPatient(name, age, roomnumber, illness)}}>Create</button>
