@@ -102,3 +102,27 @@ export async function createPatient(name: string, age: number, roomnumber: numbe
         console.log(e);
     }
 }
+
+export async function UpdatePatient(name: string, age:  number, roomnumber: number,  illness: string){
+    try{
+        const fetch_body = '{"name: "'+ name+ '", age: "'+ age + '", roomnumber: "'+ roomnumber + ', "illness: "' + illness + '"}';
+        console.log(fetch_body);
+        const response = await fetch('http://localhost:8080/patient/update/',{
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body:fetch_body
+        });
+        console.log(response);
+        if(!response.ok){
+            throw new Error("Error! status code: " + response.status);
+        }
+        const patient = await response.json();
+        console.log(patient);
+        return patient;
+    }catch (error){
+        console.log(error);
+        throw new Error("Error! status code: " + error);
+    }
+}

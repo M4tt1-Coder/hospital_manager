@@ -2,6 +2,7 @@
 	import type { PageData } from './$types';
 	import { goto } from '$app/navigation';
 	import { fade, fly } from 'svelte/transition';
+	import {dashboardPatientName, dashboardIllnessName} from '$lib/dashboard_helper';
 	export let data: PageData;
 
 	//searchstring holder
@@ -23,18 +24,18 @@
 	});
 
 	//use for opening dashboard
-	export let dash_patient_name = "";	
 	function open_patients_dashboard(name: string){
-		dash_patient_name = name;
+		console.log(name);
+		dashboardPatientName.set(name);
 		goto('pat_dashboard');
 	}
 	
-	export let dash_illness_name = "";
 	function open_illnesses_dashboard(name: string){//usually with a ID 
-		dash_patient_name = name;
+		console.log(name);
+		dashboardIllnessName.set(name);
 		goto("ill_dashboard");
 	}
-
+	
     // work trough the svelte tutorial: https://learn.svelte.dev/tutorial/your-first-component
 
 	//svelte components have children -> on:click event one button  overrides one button thats its children

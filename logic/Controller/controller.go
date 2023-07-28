@@ -77,7 +77,7 @@ func UpdatePatientByName(w http.ResponseWriter, r *http.Request) {
 	if err2 != nil {
 		http.Error(w, err2.Error(), http.StatusBadRequest)
 	}
-	//get the illnesps by name but better convert illness passed by the user
+	//get the illness by name but better convert illness passed by the user
 	ill := vars["illness"]
 	name := vars["name"]
 	i := models.UpdatePatientByName(name, age, rm_num, ill)
