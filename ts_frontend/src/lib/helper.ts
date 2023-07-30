@@ -126,3 +126,27 @@ export async function UpdatePatient(name: string, age:  number, roomnumber: numb
         throw new Error("Error! status code: " + error);
     }
 }
+
+export async function UpdateIllness(name: string, kind: string, cbh: boolean){
+    try {
+        const fetch_body = '{"name":"' + name + '","kind":"' + kind + '","can_be_healed":"' + cbh + '"}';
+        console.log(fetch_body);
+        const response = await fetch("http:/localhost:8080/illness/update/", {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: fetch_body
+        });
+        console.log(response);
+        if(!response.ok){
+            throw new Error("Error! status code: " + response.status);
+        }
+        const illness = await response.json();
+        console.log(illness);
+        return illness;
+    }catch (err){
+        console.log(err);
+        throw new Error("Error! status code: " + err);
+    }
+}
