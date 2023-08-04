@@ -131,7 +131,7 @@ export async function UpdateIllness(name: string, kind: string, cbh: boolean){
     try {
         const fetch_body = '{"name":"' + name + '","kind":"' + kind + '","can_be_healed":"' + cbh + '"}';
         console.log(fetch_body);
-        const response = await fetch("http:/localhost:8080/illness/update/", {
+        const response = await fetch("http://localhost:8080/illness/update/", {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"
