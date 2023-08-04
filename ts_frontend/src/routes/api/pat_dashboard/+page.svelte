@@ -47,7 +47,7 @@
 
 <main>
     <div class="header">
-        ™<p>{clock_formatter.format($time)}</p>
+        <p>{clock_formatter.format($time)}</p>
         <button on:click={() => goto('../../')}>Go to Patients</button>
 		<button on:click={() => goto('illness')}>Go to Illness</button>
     </div>
